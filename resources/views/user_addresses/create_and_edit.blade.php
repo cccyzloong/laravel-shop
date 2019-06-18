@@ -11,7 +11,7 @@
     </h2>
   </div>
   <div class="card-body">
-    <!-- 输出后端报错开始 -->
+    {{-- <!-- 输出后端报错开始 -->
     @if (count($errors) > 0)
       <div class="alert alert-danger">
         <h4>有错误发生：</h4>
@@ -21,7 +21,7 @@
           @endforeach
         </ul>
       </div>
-    @endif
+    @endif --}}
     <!-- 输出后端报错结束 -->
     <!-- inline-template 代表通过内联方式引入组件 -->
     <user-addresses-create-and-edit inline-template>
@@ -38,6 +38,7 @@
                 <option v-for="(name, id) in provinces" :value="id">@{{ name }}</option>
               </select>
             </div>
+
             <div class="col-sm-3">
               <select class="form-control" v-model="cityId">
                 <option value="">选择市</option>
@@ -52,6 +53,15 @@
             </div>
           </div>
         </select-district>
+        <div class="form-group row">
+            <label class="col-form-label text-md-right col-sm-2"></label>
+            <div class="col-sm-9">
+            @if ($errors->first('province') ||$errors->first('city')||$errors->first('district'))
+            &nbsp;&nbsp;&nbsp;<span class="text-danger">省、市、区 不能为空</span>
+                
+            @endif
+            </div>
+          </div>
         <!-- 插入了 3 个隐藏的字段 -->
         <!-- 通过 v-model 与 user-addresses-create-and-edit 组件里的值关联起来 -->
         <!-- 当组件中的值变化时，这里的值也会跟着变 -->
@@ -61,25 +71,31 @@
         <div class="form-group row">
           <label class="col-form-label text-md-right col-sm-2">详细地址</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="address" value="{{ old('address', $address->address) }}">
+            <input type="text" class="form-control" name="address" value="{{ old('address', $address->address) }}"><br>
+            &nbsp;&nbsp;&nbsp;<span class="text-danger">{{$errors->first('address')}}</span>
+            
           </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label text-md-right col-sm-2">邮编</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="zip" value="{{ old('zip', $address->zip) }}">
+            <input type="text" class="form-control" name="zip" value="{{ old('zip', $address->zip) }}"><br>
+            &nbsp;&nbsp;&nbsp;<span class="text-danger">{{$errors->first('zip')}}</span>
+            
           </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label text-md-right col-sm-2">姓名</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="contact_name" value="{{ old('contact_name', $address->contact_name) }}">
+            <input type="text" class="form-control" name="contact_name" value="{{ old('contact_name', $address->contact_name) }}"><br>
+            &nbsp;&nbsp;&nbsp;<span class="text-danger">{{$errors->first('contact_name')}}</span>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label text-md-right col-sm-2">电话</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="contact_phone" value="{{ old('contact_phone', $address->contact_phone) }}">
+            <input type="text" class="form-control" name="contact_phone" value="{{ old('contact_phone', $address->contact_phone) }}"><br>
+            &nbsp;&nbsp;&nbsp;<span class="text-danger">{{$errors->first('contact_phone')}}</span>
           </div>
         </div>
         <div class="form-group row text-center">
