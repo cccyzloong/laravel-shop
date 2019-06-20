@@ -12,5 +12,4 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->get('users', 'UsersController@index');
-
 });
