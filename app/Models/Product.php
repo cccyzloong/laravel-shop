@@ -14,7 +14,7 @@ class Product extends Model
     protected $cats = [
         'on_sale' => 'boolean',
     ];
-    public function sku()
+    public function skus()
     {
         return $this->hasMany('App\Models\ProductSku');
     }
