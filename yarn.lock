@@ -3650,7 +3650,7 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.npm.taobao.org/kind-of/download/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha1-ARRrNqYhjmTljzqNZt5df8b20FE=
 
-laravel-mix@^4.0.7:
+laravel-mix@^4.0.16:
   version "4.0.16"
   resolved "https://registry.npm.taobao.org/laravel-mix/download/laravel-mix-4.0.16.tgz#449c121021f062f03707bf49d1221d4640760d07"
   integrity sha1-RJwSECHwYvA3B79J0SIdRkB2DQc=
