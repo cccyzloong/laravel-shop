@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.9.0",
         "china-area-data": "^4.0.0",
         "laravel-mix": "^4.0.16",
         "sweetalert": "^2.1.2"
