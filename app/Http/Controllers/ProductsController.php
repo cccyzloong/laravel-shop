@@ -67,7 +67,6 @@ class ProductsController extends Controller
     {
         $user = $request->user();
         $user->favoriteProducts()->detach($product);
-
         return [];
     }
     public function favorites(Request $request){
