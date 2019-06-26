@@ -7,13 +7,15 @@ use App\Exceptions\InvalidRequestException;
 use App\Models\ProductSku;
 use App\Models\UserAddress;
 use App\Models\Order;
+//use App\Models\User;
 use Carbon\Carbon;
 use App\Jobs\CloseOrder;
 use Illuminate\Http\Request;
+//use App\Policies\OrderPolicy;
 
 class OrdersController extends Controller
 {
-    //
+    //订单列表
     public function index(Request $request){
         $orders = Order::query()
         ->with(['items.product','items.productSku'])
@@ -21,6 +23,11 @@ class OrdersController extends Controller
         ->orderBy('created_at','desc')
         ->paginate();
         return view('orders.index',['orders' => $orders]);
+    }
+    //订单详情
+    public function show(Order $order,Request $request){
+        $this->authorize('own', $order);
+        return view('orders.show',['order' => $order->load(['items.product','items.productSku'])]);
     }
     //提交订单
     public function store(OrderRequest $request)
