@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->boolean('on_sale')->default(true);
             $table->float('rating')->default(5);//商品平均评分
-            $table->unsignedBigInteger('sold_count')->default(0);
+            $table->unsignedBigInteger('sold_count')->default(0);           
             $table->unsignedBigInteger('review_count')->default(0);
             $table->decimal('price',10,2);
             $table->timestamps();
