@@ -36,8 +36,15 @@ class CartController extends Controller
     public function index(Request $request){
         /* $cartItems = $request->user()->cartItems()->with(['productSku.product'])->get();
         $addresses = $request->user()->addresses()->orderBy('last_used_at','desc')->get(); */
-        $cartItems = $this->cartService->get();
         $addresses = $request->user()->addresses()->orderBy('last_used_at','desc')->get();
+        //print_r($addresses);
+        if ($addresses->isEmpty()) {
+            return redirect('user_addresses/create'); 
+        }
+        $cartItems = $this->cartService->get();
+            //echo 'ls';
+           
+        
         return view('cart.index', ['cartItems' => $cartItems,'addresses' => $addresses]);
     }
     public function remove(ProductSku $productSku,Request $request){
