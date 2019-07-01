@@ -39,6 +39,7 @@ class UpdateProductRating implements ShouldQueue
                 })
                 ->first([
                     DB::raw('count(*) as review_count'),
+                    //DB::raw('count(*) as review_count'),
                     DB::raw('avg(rating) as rating')
                 ]);
             // 更新商品的评分和评价数
@@ -47,5 +48,6 @@ class UpdateProductRating implements ShouldQueue
                 'review_count' => $result->review_count,
             ]);
         }
+        
     }
 }

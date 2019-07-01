@@ -54,7 +54,7 @@ class PaymentController extends Controller
             // 返回数据给支付宝
             return app('alipay')->success();
         }
-
+        
         $order->update([
             'paid_at'        => Carbon::now(), // 支付时间
             'payment_method' => 'alipay', // 支付方式

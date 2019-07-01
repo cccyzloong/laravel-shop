@@ -21,6 +21,10 @@ class OrdersController extends Controller
         ->where('user_id',$request->user()->id)
         ->orderBy('created_at','desc')
         ->paginate();
+        /* dd(Order::query()
+        ->with(['items.product','items.productSku'])
+        ->where('user_id',$request->user()->id)
+        ->orderBy('created_at','desc')->get()); */
         return view('orders.index',['orders' => $orders]);
     }
     //订单详情
@@ -31,6 +35,7 @@ class OrdersController extends Controller
     //提交订单
     public function store(OrderRequest $request,OrderService $orderService)
     {
+
         $user    = $request->user();
         $address = UserAddress::find($request->input('address_id'));
         return $orderService->store($user, $address, $request->input('remark'), $request->input('items'));
@@ -89,7 +94,7 @@ class OrdersController extends Controller
             // 将订单标记为已评价
             $order->update(['reviewed' => true]);
             event(new OrderReviewed($order));
-        });    
+        });
 
         return redirect()->back();
     }
