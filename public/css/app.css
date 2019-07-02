@@ -15517,6 +15517,13 @@ body {
   padding-right: 10px;
 }
 
+.orders-show-page .payment-buttons,
+.orders-show-page .receive-button,
+.orders-show-page .refund-button {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
 .orders-review-show-page .vertical-middle {
   vertical-align: middle;
 }

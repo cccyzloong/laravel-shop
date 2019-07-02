@@ -15,9 +15,9 @@ body {
     font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
     font-size: 14px;
   }
-  
+
   /* header */
-  
+
   .navbar-static-top {
     border-color: #e7e7e7;
     background-color: #fff;
@@ -27,18 +27,18 @@ body {
     margin-bottom: 40px;
     margin-top: 0px;
   }
-  
+
   /* Sticky footer styles */
   html {
     position: relative;
     min-height: 100%;
   }
-  
+
   body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
   }
-  
+
   .footer {
     position: absolute;
     bottom: 0;
@@ -46,15 +46,15 @@ body {
     /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #000;
-  
+
     .container {
       padding-right: 15px;
       padding-left: 15px;
-  
+
       p {
         margin: 19px 0;
         color: #c1c1c1;
-  
+
         a {
           color: inherit;
         }
@@ -236,7 +236,7 @@ body {
     .buttons {
       padding-left: 44px;
     }
- 
+
     .product-detail  {
       .nav.nav-tabs > li > a {
         border-radius: 0 !important;
@@ -257,7 +257,7 @@ body {
         }
         margin-right: 20px;
       }
-  
+
       .product_info {
         display: flex;
         flex-direction: row;
@@ -266,7 +266,7 @@ body {
         .product_title, .sku_title, .warning {
           display: block;
         }
-  
+
         .product_title a {
           color: #3c3c3c;
           font-size: 14px;
@@ -280,13 +280,13 @@ body {
           }
         }
       }
-  
+
       .price {
         font-size: 12px;
         font-weight: 700;
         color: #3c3c3c;
       }
-  
+
       input.amount {
         width: 60px;
         border-radius: 0 !important;
@@ -410,7 +410,10 @@ body {
       margin-top: 10px;
       padding-right: 10px;
     }
-    
+    .payment-buttons, .receive-button, .refund-button {
+        margin-top: 10px;
+        padding-right: 10px;
+      }
   }
   .orders-review-show-page {
     .vertical-middle {
@@ -465,7 +468,7 @@ body {
           line-height: 1.2;
           color: lightgrey;
           font-size: 150%;
-  
+
           &:before {
             content: '★ ';
           }
@@ -482,12 +485,12 @@ body {
         top: 2px;
         left: 2px;
       }
-  
+
       & > input:checked + label:hover, & > input:checked + label:hover ~ label, & > input:checked ~ label:hover, & > input:checked ~ label:hover ~ label, & > label:hover ~ input:checked ~ label {
         color: gold;
       }
     }
-  
+
     textarea {
       border-radius: 0px;
     }
