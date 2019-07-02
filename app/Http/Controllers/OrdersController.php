@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use App\Http\Requests\SendReviewRequest;
 use App\Events\OrderReviewed;
 use App\Http\Requests\ApplyRefundRequest;
+
 class OrdersController extends Controller
 {
     //订单列表
@@ -112,6 +113,8 @@ class OrdersController extends Controller
             throw new InvalidRequestException("该订单已申请付款，请勿重新申请");
         }
         //保存用户的退款理由
+        /*  */
+
         $extra = $order->extra ? :[];
         $extra['refund_reason'] = $request->input('reason');
         //更改用户订单状态为已申请退款
@@ -122,4 +125,6 @@ class OrdersController extends Controller
         //返回此订单
         return $order;
     }
+
+
 }
