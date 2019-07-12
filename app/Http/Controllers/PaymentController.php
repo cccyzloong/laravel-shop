@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Exceptions\InvalidRequestException;
 use Carbon\Carbon;
-
+use App\Events\OrderPaid;
 class PaymentController extends Controller
 {
     //
@@ -54,13 +54,17 @@ class PaymentController extends Controller
             // 返回数据给支付宝
             return app('alipay')->success();
         }
-        
+
         $order->update([
             'paid_at'        => Carbon::now(), // 支付时间
             'payment_method' => 'alipay', // 支付方式
             'payment_no'     => $data->trade_no, // 支付宝订单号
         ]);
-
+        $this->afterPaid($order);
         return app('alipay')->success();
+    }
+    protected function afterPaid(Order $order)
+    {
+        event(new OrderPaid($order));
     }
 }
