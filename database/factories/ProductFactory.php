@@ -25,7 +25,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'image'        => $image,
         'on_sale'      => true,
         'rating'       => $faker->numberBetween(0, 5),
-        'sale_count'   => 0,
+        'sold_count'   => 0,
         'review_count' => 0,
         'price'        => 0,
     ];
