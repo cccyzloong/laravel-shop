@@ -12,6 +12,3 @@ php artisan migrate
 redis-server
 
 php artisan queue:work
-
-php artisan 
-
